@@ -1,0 +1,6 @@
+Instructions for running the code
+
+Install MySQL: Make sure MySQL is installed and running on your machine.
+Create Database: Run the provided SQL queries to set up the database and table in MySQL.
+JDBC Driver: Add the MySQL JDBC driver (e.g., mysql-connector-java-x.x.x.jar) to your project's classpath.
+Run the Program: Compile and run the FinanceTracker.java class.
