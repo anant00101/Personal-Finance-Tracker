@@ -1,63 +1,144 @@
-body {
-    font-family: Arial, sans-serif;
+/* General Reset */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    box-sizing: border-box;
 }
 
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header Styling */
 header {
     background-color: #35424a;
     color: white;
-    padding: 10px 0;
+    padding: 20px 0;
     text-align: center;
+    margin-bottom: 20px;
 }
 
+header h1 {
+    margin: 0;
+}
+
+/* Navigation Styling */
 nav {
     text-align: center;
-    margin: 20px 0;
+    margin-bottom: 20px;
 }
 
 nav a {
-    margin: 0 10px;
+    margin: 0 15px;
     text-decoration: none;
     color: #35424a;
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
+nav a:hover {
+    color: #45a049;
+}
+
+/* Main Content Styling */
 main {
     padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Form Styling */
 form {
+    width: 100%;
     max-width: 400px;
     margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-label {
+form label {
     display: block;
-    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
-input, select, button {
+form input,
+form select,
+form button {
     width: 100%;
     padding: 10px;
-    margin-top: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-button {
+form button {
     background-color: #35424a;
     color: white;
     border: none;
     cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
-button:hover {
+form button:hover {
     background-color: #45a049;
 }
 
+/* Footer Styling */
 footer {
-    text-align: center;
-    padding: 10px 0;
     background-color: #35424a;
     color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+/* Section Styling for Dashboard and Reports */
+section {
+    margin-bottom: 20px;
+}
+
+section h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+section p {
+    margin-bottom: 10px;
+}
+
+/* List Styling */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    background: #e8e8e8;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
 }
