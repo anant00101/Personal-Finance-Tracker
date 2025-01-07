@@ -1,0 +1,110 @@
+Project Documentation: Personal Finance Tracker
+1. Introduction
+The Personal Finance Tracker is a web-based application designed to help users manage their finances by tracking income, expenses, and providing a user-friendly dashboard to view financial summaries. The application includes functionalities such as user registration, profile management, and financial tracking features.
+
+This document provides a detailed overview of the project, including its architecture, components, features, and usage.
+
+2. Project Overview
+Name: Personal Finance Tracker
+Technology Stack:
+Frontend: HTML, CSS, JavaScript (for form validation and interactivity)
+Backend: Java (Servlets), JSP, JSTL, EL
+Database: In-memory (for simplicity; can be replaced with MySQL, PostgreSQL, etc.)
+Testing Frameworks: JUnit, Mockito
+3. Architecture
+The Personal Finance Tracker follows a Model-View-Controller (MVC) architecture.
+
+Model: Represents the business logic and data. In this project, the model is represented by the User and Transaction classes, which store user data and financial transactions.
+View: JSP pages display information to the user. These pages utilize JSTL and EL to bind data dynamically from the servlet controller.
+Controller: Servlets handle HTTP requests and responses. The controller processes data from the user and interacts with the model and view.
+Diagram:
+
+css
+Copy code
+  [User] --> [Controller (Servlets)] --> [Model (DAO + Service)] --> [View (JSP)]
+4. Components
+4.1. Service Layer
+The service layer contains the business logic. It interacts with the DAO layer to fetch or store data and performs necessary operations on that data.
+
+UserService: Provides user registration, login, and profile management functionalities. It acts as a mediator between the DAO layer and the servlet/controller.
+
+Methods:
+
+getUserByUsername(String username)
+registerUser(User user)
+4.2. DAO Layer
+The DAO (Data Access Object) layer handles data persistence and retrieval. It interacts with the database (or in this case, an in-memory storage) to perform CRUD operations.
+
+UserDAO: Provides database interactions related to users. It stores and retrieves users based on their username.
+
+Methods:
+
+findByUsername(String username)
+save(User user)
+4.3. Controller Layer (Servlets)
+Servlets act as the controllers that handle incoming HTTP requests, interact with the service layer, and forward the results to the JSP views.
+
+UserServlet: Manages user-related operations like registration, login, and displaying user details.
+
+Methods:
+
+doGet(HttpServletRequest request, HttpServletResponse response)
+doPost(HttpServletRequest request, HttpServletResponse response)
+4.4. View Layer (JSP)
+The JSP (JavaServer Pages) files serve as the user interface, where data is displayed to the user. These files use JSTL and EL to dynamically render the data received from the servlets.
+
+userList.jsp: Displays a list of users and their details.
+userDetails.jsp: Displays detailed information about a specific user.
+5. Features
+User Registration: Users can sign up by providing a username, full name, and email. If the username is not taken, they can successfully register.
+User Profile: Users can view their profile, which includes their name, email, and address.
+Financial Tracker: Users can add income and expenses, which are tracked and displayed on their dashboard.
+User Authentication: A simple login mechanism is implemented to authenticate users before accessing their financial data.
+6. Detailed Workflow
+Registration:
+
+User enters their username, full name, and email.
+The system checks if the username is already taken.
+If not, the user is registered, and their details are saved in the database (or in-memory storage).
+User Profile:
+
+After registration or login, users can view their profile.
+Profile data is fetched from the DAO layer and displayed on the JSP page.
+Financial Tracking:
+
+Users can add transactions such as income or expenses.
+These transactions are stored in the system and can be viewed in a summary.
+Login:
+
+Users must log in with their credentials to access their financial data.
+The login page authenticates users based on the stored data.
+7. Unit Testing
+The project includes unit tests for both the Service Layer and DAO Layer.
+
+UserServiceTest: Tests the logic for registering users, retrieving user details, and handling user-related operations.
+UserDAOTest: Tests the persistence logic for saving and retrieving users from the data storage.
+Tests were written using JUnit and Mockito to mock dependencies.
+
+8. Installation and Setup
+Step 1: Clone the Repository
+bash
+Copy code
+git clone https://github.com/your-repo/personal-finance-tracker.git
+Step 2: Import the Project into Your IDE
+Import the project into your IDE (Eclipse, IntelliJ IDEA, etc.).
+Step 3: Build the Project with Maven
+Use Maven to build the project.
+bash
+Copy code
+mvn clean install
+Step 4: Run the Application
+Deploy the project to a servlet container (e.g., Tomcat) or use an embedded server.
+Access the application via http://localhost:8080/finance-tracker.
+9. Future Improvements
+Database Integration: Replace the in-memory storage with a real database (e.g., MySQL or PostgreSQL).
+Authentication: Implement more robust user authentication with session management or JWT.
+Financial Analytics: Provide financial summaries and reports (e.g., monthly spending, income vs expenses).
+Mobile Application: Develop a mobile app version of the finance tracker.
+10. Conclusion
+The Personal Finance Tracker is a simple and effective tool for managing personal finances. The project follows a Model-View-Controller (MVC) design pattern and has been structured for easy maintainability and scalability. Unit tests ensure that the application is robust and ready for further development.
+
